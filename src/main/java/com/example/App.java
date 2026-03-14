@@ -3,28 +3,28 @@ package com.example;
 public class App {
     public static void main(String[] args) {
 
-        // Validation: must have exactly 2 arguments
-        if (args.length < 2) {
-            System.out.println("Usage: App <num1> <num2>");
+        // Validation: must have at least 1 integer
+        if (args.length < 1) {
+            System.out.println("Usage: App <num1> <num2> ...");
             System.exit(1);
         }
 
-        int a, b;
+        // Parse all arguments into an int array
+        int[] nums = new int[args.length];
         try {
-            a = Integer.parseInt(args[0]);
-            b = Integer.parseInt(args[1]);
+            for (int i = 0; i < args.length; i++) {
+                nums[i] = Integer.parseInt(args[i]);
+            }
         } catch (NumberFormatException e) {
-            System.out.println("Error: both arguments must be integers.");
+            System.out.println("Error: all arguments must be integers.");
             System.exit(1);
             return;
         }
 
-        Calculator c = new Calculator();
-        System.out.println("Sum: "     + c.sum(a, b));
-        System.out.println("Diff: "    + c.diff(a, b));
-        System.out.println("Product: " + c.product(a, b));
-        System.out.println("Average: " + c.average(a, b));
-        System.out.println(a + " is even: " + c.isEven(a));
-        System.out.println(b + " is even: " + c.isEven(b));
+        // Use ArrayStats
+        ArrayStats stats = new ArrayStats();
+        System.out.println("Max: " + stats.max(nums));
+        System.out.println("Min: " + stats.min(nums));
+        System.out.println("Mean: " + stats.mean(nums));
     }
 }
