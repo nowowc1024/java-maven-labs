@@ -1,7 +1,9 @@
+com/example/ConsolePrinter.class
 com/example/Shape.class
 com/example/App.class
 com/example/Cart.class
 com/example/Product.class
+com/example/Printer.class
 com/example/Calculator.class
 com/example/Greeter.class
 com/example/Rectangle.class
